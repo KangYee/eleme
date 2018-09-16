@@ -2,11 +2,19 @@
   "private": true,
   "name": "ts",
   "scripts": {
-    "dev": "ts-node src"
+    "dev": "nodemon -e ts -x ts-node src/index.ts",
+    "start": "pm2 start src/index.ts --name ts --instances 1",
+    "reload": "pm2 reload ts --update-env",
+    "precommit": "pretty-quick --staged"
   },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^10.9.4",
+    "husky": "^0.14.3",
+    "nodemon": "^1.18.4",
+    "pm2": "^3.1.2",
+    "prettier": "^1.14.2",
+    "pretty-quick": "^1.6.0",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
   }
